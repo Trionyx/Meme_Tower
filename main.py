@@ -55,7 +55,6 @@ def index():
     shelf_y = 1
     form = JumpForm()
     meme_pic = 'static/welcome.png'  # Приветственное изображение
-    # TODO BUG - Сообщение ниже отображается без переносов
     game_message = ""
     score = 0
     position = 0  # Начальная позиция игрока
