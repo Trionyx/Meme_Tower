@@ -71,7 +71,11 @@
             <p></p>
             {{ form.submit(class_='btn btn-success') }}
         </div>
-
+    {% for field, errors in form.errors.items() %}
+        <div class="alert alert-error">
+            {{ form[field].label }}: {{ ', '.join(errors) }}
+        </div>
+    {% endfor %}
     </form>
 {% endblock %}
     <a href="/">Начать с начала</a>

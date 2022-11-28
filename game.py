@@ -48,7 +48,6 @@ def game_logic(game_data):
         else:
             game_message_id = 3  # f'Вы перепрыгнули на следующую полку'
             score += 100
-    print(f'score after step in game.py: {score}')  # temp
     game_state = [score, position, step, game_message_id, shelf_x, shelf_y]
     return game_state
 
@@ -59,15 +58,15 @@ def game_messages(game_message_id):
     print(f' game message id: {game_message_id}')
     game_message_id = int(game_message_id)
     if game_message_id == 0:
-        game_message = f'Вы прыгнули в стену и кислота догнала вас'
+        game_message = f'Вы прыгнули в стену и кислота догнала вас.'
     elif game_message_id == 1:
-        game_message = f'Вы не попали на полку и упали в кислоту'
+        game_message = f'Вы не попали на полку и упали в кислоту.'
     elif game_message_id == 2:
-        game_message = f'Вы перепрыгнули на следующую полку и достигли нового этажа'
+        game_message = f'Вы перепрыгнули на следующую полку и достигли нового этажа.'
     elif game_message_id == 3:
-        game_message = f'Вы перепрыгнули на следующую полку'
+        game_message = f'Вы перепрыгнули на следующую полку.'
     elif game_message_id == 4:
-        game_message = f'Вы неправильно расчитали высоту и упали в кислоту'
+        game_message = f'Вы неправильно расчитали высоту и упали в кислоту.'
     return game_message
 
 

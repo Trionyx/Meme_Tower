@@ -1,4 +1,4 @@
-from flask import Flask, flash, render_template, url_for
+from flask import Flask, flash, render_template, url_for, session
 from flask_wtf import FlaskForm
 from wtforms import SelectField, SubmitField, IntegerField, RadioField
 from wtforms.validators import DataRequired, NumberRange
@@ -66,7 +66,7 @@ def index():
         jump_height = form.jump_height.data
         jump_distance = int(form.jump_distance.data)
 
-        # Передаем в логику игры список с данными игры, получаем список с состояниями игры
+        # Упаковываем данные игрока в game_data, чтобы передать в логику игры
         game_data = [
             int(score),
             int(position),
@@ -77,7 +77,6 @@ def index():
             int(shelf_y),
             int(step),
         ]
-        print(game_data)  # temp
         game_state = game.game_logic(game_data)
 
         game_message = f'' \
@@ -95,7 +94,6 @@ def index():
 
             game_state[4] = shelf_x
             game_state[5] = shelf_y
-            print(f'Высота прыжка index - game_state[5]: {game_state[5]}')  # temp
             return redirect(url_for(
                 'game_index',
                 score=game_state[0],
@@ -103,6 +101,7 @@ def index():
             ))
         else:  # Если игрок умер, то отправляем игрока на экран game_over
             flash(game_message)
+            session.pop('_flashes', None)
             return redirect(url_for(
                 'game_over',
                 game_state=game_state,
@@ -147,10 +146,9 @@ def game_index(score, game_state):
             int(game_state[5]),  # shelf_y
             int(game_state[2]),  # step
         ]
-        print(f'game data before game logic : {game_data}')  # temp
+
         # Возвращаем состояние игры из логики
         game_state = game.game_logic(game_data)
-        print(f'game_state after game logic: {game_state}')  # temp
 
         game_message = f'' \
                        f'{game.game_messages(game_state[3])} ' \
@@ -169,7 +167,6 @@ def game_index(score, game_state):
 
             game_state[4] = shelf_x
             game_state[5] = shelf_y
-            print(f'Высота прыжка game_index - game_state[5]: {game_state[5]}')  # temp
             return redirect(url_for(
                 'game_index',
                 score=game_state[0],
@@ -177,6 +174,7 @@ def game_index(score, game_state):
             ))
         else:  # Если игрок умер, то отправляем игрока на экран game_over
             flash(game_message)
+            session.pop('_flashes', None)
             return redirect(url_for(
                 'game_over',
                 game_state=game_state,
