@@ -106,10 +106,11 @@ pip install -r requirements.txt
 
 [//]: # (8. fix game_over message transition)
 
-9. Create requirments.txt
+[//]: # (9. Create requirments.txt)
+
 10. Convert repetable elements from VIEWs to class or function
 
-[//]: # (10. Remove temp prints)
+[//]: # (11. Remove temp prints)
 
 ## Links
 Meme API video: https://youtube.com/watch?v=5aYpkLfkgRE
