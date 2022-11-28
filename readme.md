@@ -1,13 +1,17 @@
 # Башня мемов
 Жанр: Текстовый платформер
+
 Игра представляет собой башню, где персонажу нужно перерыгивать на полки, чтобы добраться до следующего этажа.
+
 На каждом этаже лежит мем в качестве приза. (Категорию мемов можно выбрать в meme.py/get_meme())
+
 Так как это текстовая игра, каждый новый ход нужно представлять в воображении, в этом основной "челендж"
 
 - Ширина башни - 3м
 - Максимальная высота полки 3м
 - Полки бывают - левая, средняя, правая
 - Начальная точка - левый нижний угол
+- 
 Игроку нужно расчитать прыжок и указать на сколько он прыгнет до следующей полки относительно той, где он находится.
 При каждом прыжке, предыдущий уровень заполняется кислотой, поэтому нет возможности упасть на предыдущую полку или 
 прыгнуть в стену. Если промазал - погибаешь.
@@ -75,10 +79,11 @@
 [//]: # (5. FIX range selector to show value https://stackoverflow.com/questions/10004723/html5-input-type-range-show-range-value)
 [//]: # (                or: https://stackoverflow.com/questions/67550375/how-to-display-a-bootstrap-range-from-the-one-and-how-to-show-the-value-in-the-i)
 [//]: # (6. Push to Github)
-7. Initial clean code
-8. Create requirments.txt
-9. Convert repetable elements from VIEWs to class or function
-10. Remove temp prints
+1. test
+2. Initial clean code
+3. Create requirments.txt
+4. Convert repetable elements from VIEWs to class or function
+5. Remove temp prints
 
 ## Links
 Meme API video: https://youtube.com/watch?v=5aYpkLfkgRE
