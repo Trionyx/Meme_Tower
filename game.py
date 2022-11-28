@@ -68,7 +68,6 @@ def game_messages(game_message_id):
         game_message = f'Вы перепрыгнули на следующую полку'
     elif game_message_id == 4:
         game_message = f'Вы неправильно расчитали высоту и упали в кислоту'
-
     return game_message
 
 
