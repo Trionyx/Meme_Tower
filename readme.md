@@ -79,11 +79,10 @@
 [//]: # (5. FIX range selector to show value https://stackoverflow.com/questions/10004723/html5-input-type-range-show-range-value)
 [//]: # (                or: https://stackoverflow.com/questions/67550375/how-to-display-a-bootstrap-range-from-the-one-and-how-to-show-the-value-in-the-i)
 [//]: # (6. Push to Github)
-1. test
-2. Initial clean code
-3. Create requirments.txt
-4. Convert repetable elements from VIEWs to class or function
-5. Remove temp prints
+7. Initial clean code
+8. Create requirments.txt
+9. Convert repetable elements from VIEWs to class or function
+10. Remove temp prints
 
 ## Links
 Meme API video: https://youtube.com/watch?v=5aYpkLfkgRE
