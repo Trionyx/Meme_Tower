@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Meme tower</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body class="bg-dark text-primary">
+
+<div class="container text-center">
+<h1 class="display-3">Meme tower</h1>
+
+{% block content %}
+
+    <form action="" method="post">
+        {{ form.csrf_token }}
+        <p>Ваш счет: {{ score }}</p>
+        <div class="container text-center">
+          <div class="row">
+            <div class="col">
+                <img src="{{ meme_pic }}" class="img-thumbnail">
+            </div>
+            <div class="col text-start">
+                {% if score == 0 %}
+                    <p class="text-start">Ширина башни - 3м</p>
+                    <p>Максимальная высота полки 3м</p>
+                    <p>Полки бывают - левая, средняя, правая</p>
+                    <p>Начальная точка - левый нижний угол</p>
+                    <p>Игроку нужно расчитать прыжок и указать на сколько он прыгнет до следующей полки относительно той, где находится.</p>
+                    <p>При каждом прыжке, предыдущий уровень заполняется кислотой, поэтому нет возможности упасть на предыдущую полку или
+                    прыгнуть в стену, если промазал - погибаешь.</p>
+            </div>
+            <div>
+                    <p class="text-bg-primary p-3">{{ shelf_message }}</p>
+                {% endif %}
+
+                {% with messages = get_flashed_messages() %}
+                  {% if messages %}
+                    <ul class=flashes>
+                    {% for message in messages %}
+                      <p class="text-bg-primary p-3">{{ message }}</p>
+                    {% endfor %}
+                    </ul>
+                  {% endif %}
+
+            </div>
+          </div>
+        </div>
+
+        {% endwith %}
+        <div class="container text-center p-2">
+             <div class="row">
+                 <div class="col">
+                {{ form.jump_direction.label }}
+                 <p></p>
+                 {{ form.jump_direction(class_="form-select") }}
+                </div>
+                <div class="col">
+                {{ form.jump_height.label }} {{ form.jump_height(class_="form-range", type_="range", value="1", min="1", max="3", oninput_="this.nextElementSibling.value = this.value") }}<output>1</output>
+                </div>
+                <div class="col">
+                    {{ form.jump_distance.label }}
+                    <p></p>
+                    {% for subfield in form.jump_distance %}
+                        {{ subfield(class_="btn-check", type_="radio") }}
+                        {{ subfield.label(class_="btn btn-outline-primary") }}
+                    {% endfor %}
+                </div>
+             </div>
+            <p></p>
+            {{ form.submit(class_='btn btn-success') }}
+        </div>
+
+    </form>
+{% endblock %}
+    <a href="/">Начать с начала</a>
+</div>
+<p></p>
+<p></p>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+</body>
+</html>
