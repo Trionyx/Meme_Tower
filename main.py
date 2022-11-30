@@ -117,7 +117,7 @@ def index():
 
     )
 
-# Путь после начала игры
+# Путь после начала игры # TODO Convert repetable elements from VIEWs to class or function
 @app.route("/<score>_<game_state>", methods=['GET', 'POST'])
 def game_index(score, game_state):
 
