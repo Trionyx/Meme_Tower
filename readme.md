@@ -18,6 +18,7 @@
 
 ![turn example image](static/welcome.png)
 
+
 ## Установка необходимых библиотек
 
 Для удобства все библиотеки собраны в requirements.txt.
@@ -26,6 +27,12 @@
 ```
 pip install -r requirements.txt
 ```
+
+## Запуск проекта
+
+Запускать проект следует через - `main.py`
+
+
 
 [//]: # (Пример ходов: )
 
